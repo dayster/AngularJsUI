@@ -24,8 +24,13 @@ function routes($routeProvider) {
             controller: 'ShowController',
             controllerAs: 'show',
             resolve: {
-                data: function(StoreFactory, $route) {
-                    return StoreFactory.getShow($route.current.params.id);
+                data: function(StoreFactory, $route, $location) {
+                    var res = StoreFactory.getShow($route.current.params.id);
+                    if(res !== false){
+                        return res;
+                    }else{
+                        $location.path("/404");
+                    }
                 },
                 seasons: function(ShowService, $route) {
                     return ShowService.get($route.current.params.id).then(function(response){
@@ -33,6 +38,9 @@ function routes($routeProvider) {
                     })
                 }
             }
+        })
+        .when('/404',{
+            templateUrl: 'sections/404/404.tpl.html'
         })
         .otherwise({
             redirectTo: '/'

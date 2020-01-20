@@ -30,7 +30,7 @@
     
                         <div class="form-group" ng-class="{'has-error': (show.newEntryForm.entry.$invalid), 'has-success': (show.newEntryForm.entry.$valid)}">
                             <label class="control-label">Entry:</label>
-                            <textarea name="entry" ng-model="show.newEntry.entry" rows="5" class="form-control" ng-disabled="!show.newEntry.episode" required min-words="10"></textarea>
+                            <textarea name="entry" ng-model="show.newEntry.entry" min-words="10" rows="5" class="form-control" ng-disabled="!show.newEntry.episode" required min-words="10"></textarea>
                             <div class="input-error" ng-messages="show.newEntryForm.entry.$error">
                                 <div class="message" ng-message="required">This field is required</div>
                                 <div class="message" ng-message="minWords">You must provide at least 10 words</div>
@@ -40,7 +40,6 @@
                         <div class="controls">
                             <button ng-disabled="show.newEntryForm.$invalid" class="show-btn save-btn" ng-click="show.saveEntry()">Save</button>
                         </div>
-    
                     </div>
                 </form>
             </div>

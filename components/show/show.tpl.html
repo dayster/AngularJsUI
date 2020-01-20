@@ -2,7 +2,7 @@
     <div class="inner">
         <a href="#/show/{{show.id}}" ng-if="showDiary" class="diary-btn"><span class="glyphicon glyphicon-book"></span><div class="count">{{show.diary_entries.length || 0}}</div></a>        <h2>{{show.name}} <span class="first-air">{{show.first_air_date}}</span></h2>
         <div class="show-image">
-            <img ng-src="http://image.tmdb.org/t/p/w780{{show.poster_path}}" />
+            <img preload-image ng-src="http://image.tmdb.org/t/p/w780{{show.poster_path}}" />
         </div>
         <div class="show-content" ng-switch="hasShow(show.id)">
             {{show.vote_average}}<br />
